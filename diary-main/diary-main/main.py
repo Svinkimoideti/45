@@ -13,11 +13,12 @@ class Card(db.Model):
         return f'<Card {self.id}>'
 @app.route('/')
 def index():
+    
     #Задание №2. Отоброзить объекты из БД в index.html
-    Card.query.order_by(Card.id).all()
+    cards = Card.query.order_by(Card.id).all()
 
     return render_template('index.html',
-                           #cards = cards
+                           cards = cards
 
                            )
 
